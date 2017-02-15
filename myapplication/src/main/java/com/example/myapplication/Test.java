@@ -12,6 +12,7 @@ public class Test {
     private String name;
 
 
+
     Test(int length, boolean guess, String name){
         this.length = length;
         this.guess = guess;
