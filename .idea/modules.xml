@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Personal-Data-Interaction.iml" filepath="$PROJECT_DIR$/Personal-Data-Interaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Assignment2 MW.iml" filepath="$PROJECT_DIR$/Assignment2 MW.iml" />
       <module fileurl="file://$PROJECT_DIR$/myapplication/myapplication.iml" filepath="$PROJECT_DIR$/myapplication/myapplication.iml" />
     </modules>
   </component>
