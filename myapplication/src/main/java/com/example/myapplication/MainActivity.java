@@ -39,34 +39,35 @@ public class MainActivity extends AppCompatActivity {
         btnVisual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String stringer = randomcolor.get(arrayIndex);
-                Handler handler = new Handler();
-                for (int j =0; j<3;j++){
-                for(int i = 0; i<stringer.length();i++) {
-                    final int finali = i;
-                    final Runnable run = new Runnable() {
-                        @Override
-                        public void run() {
-                            System.out.println(String.valueOf(stringer.charAt(finali)));
-                            if (String.valueOf(stringer.charAt(finali)).toString().equals("r")){
-                                btnVisual.setBackgroundColor(Color.RED);
-                            }
-                            else if (String.valueOf(stringer.charAt(finali)).toString().equals("b")){
-                                btnVisual.setBackgroundColor(Color.BLUE);
-                            }
-                            else if (String.valueOf(stringer.charAt(finali)).toString().equals("y")) {
-                                btnVisual.setBackgroundColor(Color.YELLOW);
-                            }
 
-                        }
-                    };
-                    handler.postDelayed(run,500*i);
+                Handler handler = new Handler();
+
+                if (arrayIndex < 3) {
+                    final String stringer = randomcolor.get(arrayIndex);
+                    for (int i = 0; i < stringer.length(); i++) {
+
+                        final int finali = i;
+                        final Runnable run = new Runnable() {
+                            @Override
+                            public void run() {
+                                if (String.valueOf(stringer.charAt(finali)).equals("r")) {
+                                    btnVisual.setBackgroundColor(Color.RED);
+                                } else if (String.valueOf(stringer.charAt(finali)).equals("b")) {
+                                    btnVisual.setBackgroundColor(Color.BLUE);
+
+                                } else if (String.valueOf(stringer.charAt(finali)).equals("y")) {
+                                    btnVisual.setBackgroundColor(Color.YELLOW);
+
+                                }
+                            }
+                        };
+                        handler.postDelayed(run, 1000 * i);
+
+                    }
                     arrayIndex++;
                 }
 
-            }}
+            }
         });
-
-
     }
 }
