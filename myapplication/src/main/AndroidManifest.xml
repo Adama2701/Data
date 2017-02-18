@@ -8,7 +8,8 @@
         android:label="Remember Color"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="Main Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,8 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DoneActivity">
-        </activity>
+        <activity android:name=".DoneActivity"></activity>
     </application>
 
 </manifest>
