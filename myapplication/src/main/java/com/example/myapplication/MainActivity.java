@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     int arrayLength = 50;
     boolean guess = false;
     String choice = "";
+    String stringer;
 
     ArrayList<String> randomcolor;
     Logic logic;
@@ -44,39 +46,50 @@ public class MainActivity extends AppCompatActivity {
         btnRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showColors(v, "r");
+                if(guess){
+                    choice = choice + "r" + "w";
+                    checkInput();
+                }
             }
         });
 
         btnBlue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showColors(v, "b");
+                if(guess){
+                    choice = choice + "b" + "w";
+                    checkInput();
+                }
             }
         });
 
         btnYellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showColors(v, "y");
+                if(guess){
+                    choice = choice + "y" + "w";
+                    checkInput();
+                }
             }
         });
 
         btnVisual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                showColors(view, "");
+                showColors();
 
             }
         });
     }
-    private void showColors(View view, String input){
+    private void showColors(){
         Handler handler = new Handler();
-        final String stringer = randomcolor.get(arrayIndex);
+        stringer = randomcolor.get(arrayIndex);
+
+        btnBlue.setEnabled(false);
+        btnRed.setEnabled(false);
+        btnYellow.setEnabled(false);
 
         if (arrayIndex < arrayLength && !guess) {
-            choice = "";
 
             for (int i = 0; i < stringer.length(); i++) {
 
@@ -102,21 +115,29 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(run, 1000 * i);
 
             }
+            choice = "";
             guess = true;
+            btnBlue.setEnabled(true);
+            btnRed.setEnabled(true);
+            btnYellow.setEnabled(true);
+
         }
-        else if (arrayIndex < arrayLength && guess) {
-            if (choice.length() < stringer.length()) {
-                choice = choice + input + "w";
-                showColors(view, input);
-            }
-        }
-            else if(choice.equals(stringer)){
-               arrayIndex ++;
-                guess = false;
-            }
-            else{
-                System.out.println("WRONG");
-            }
 
     }
+
+    private void checkInput(){
+
+        if(choice.equals(stringer)){
+            arrayIndex ++;
+            guess = false;
+            showColors();
+        }else if (choice.length() == stringer.length()){
+            Intent intent = new Intent(this, DoneActivity.class);
+            finish();
+            startActivity(intent);
+        }
+    }
+
+
+
 }
