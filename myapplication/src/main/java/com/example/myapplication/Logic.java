@@ -18,7 +18,7 @@ public class Logic {
             String tempString = "";
             for (int j = 0; j<minlen;j++){
                 String randomColor = String.valueOf(colors.charAt(randomGenerator.nextInt(colors.length())));
-                tempString = tempString + randomColor;
+                tempString = tempString + randomColor + "w";
             }
         tempArray.add(tempString);
         minlen++;
