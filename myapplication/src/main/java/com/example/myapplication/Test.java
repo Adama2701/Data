@@ -9,8 +9,8 @@ public class Test {
 
 
 
-    Test( int id, int score, String name){
-        this.id = id;
+    Test( int score, String name){
+
         this.score = score;
         this.name = name;
     }

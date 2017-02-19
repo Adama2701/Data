@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -79,6 +80,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        DBArgument data = new DBArgument(this);
+        Test foo = new Test(5, "Adama");
+        data.InsertTest(foo);
+        Cursor cursor = data.selectTest();
+
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            System.out.println(cursor.getColumnName(0)+": "+cursor.getInt(0)+ " | "+ cursor.getColumnName(1)+ ": "+ cursor.getString(1)+" | "+cursor.getColumnName(2)+
+                    ": "+cursor.getInt(2));
+            cursor.moveToNext();
+        }
     }
     private void showColors(){
         Handler handler = new Handler();

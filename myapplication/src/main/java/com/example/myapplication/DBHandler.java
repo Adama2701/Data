@@ -15,11 +15,11 @@ public class DBHandler extends SQLiteOpenHelper {
     // Database Name
     private static final String DATABASE_NAME = "guessInfo";
     // Contacts table name
-    private static final String TABLE_GUESS = "guessTable";
+    public static final String TABLE_GUESS = "guessTable";
     // Guess Table Columns names
-    private static final String KEY_ID ="id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_SCORE = "score";
+    public static final String KEY_ID ="id";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_SCORE = "score";
 
 
 
@@ -29,10 +29,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_GUESS_TABLE = "CREATE TABLE" + TABLE_GUESS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
+        String CREATE_GUESS_TABLE = "CREATE TABLE " + TABLE_GUESS + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + KEY_NAME + " TEXT,"
-                + KEY_SCORE + " TEXT " + ")";
+                + KEY_SCORE + " INTEGER " + ")";
 
         db.execSQL(CREATE_GUESS_TABLE);
     }
