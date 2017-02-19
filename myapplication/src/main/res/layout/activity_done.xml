@@ -19,14 +19,6 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/great_job"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="71dp"
-        android:id="@+id/amount" />
-
-    <TextView
         android:text="Great job! You have recieved the following amount correct:"
         android:textSize="25dp"
         android:layout_width="wrap_content"
@@ -38,4 +30,13 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="18dp"
         android:layout_marginStart="18dp" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="72dp"
+        android:id="@+id/amount"
+        android:layout_below="@+id/great_job"
+        android:layout_alignLeft="@+id/return_button"
+        android:layout_alignStart="@+id/return_button" />
 </RelativeLayout>

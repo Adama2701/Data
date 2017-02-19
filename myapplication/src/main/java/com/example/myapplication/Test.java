@@ -4,28 +4,23 @@ package com.example.myapplication;
 public class Test {
 
     private int id;
-    private int length;
-    private boolean guess;
+    private int score;
     private String name;
 
 
 
-    Test(int length, boolean guess, String name){
-        this.length = length;
-        this.guess = guess;
+    Test( int id, int score, String name){
+        this.id = id;
+        this.score = score;
         this.name = name;
     }
 
-    public int getLength() {
-        return length;
+    public int getScore() {
+        return score;
     }
 
     public int getId(){
         return id;
-    }
-
-    public boolean getGuess(){
-        return guess;
     }
 
     public String getName(){

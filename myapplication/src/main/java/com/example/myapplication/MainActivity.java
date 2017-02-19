@@ -2,14 +2,13 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.VectorEnabledTintResources;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
-import android.os.Handler;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -132,8 +131,9 @@ public class MainActivity extends AppCompatActivity {
             guess = false;
             showColors();
         }else if (choice.length() == stringer.length()){
-            Intent intent = new Intent(this, DoneActivity.class);
-            finish();
+            Intent intent = new Intent(getBaseContext(), DoneActivity.class);
+            String temp = (stringer.length()/2)-1 + "";
+            intent.putExtra("Data", temp);
             startActivity(intent);
         }
     }
