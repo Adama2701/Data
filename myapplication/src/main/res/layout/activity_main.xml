@@ -51,6 +51,6 @@
         android:id="@+id/button5"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Visual" />
+         />
 
 </RelativeLayout>

@@ -36,6 +36,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="72dp"
         android:id="@+id/amount"
+        android:textSize="25dp"
         android:layout_below="@+id/great_job"
         android:layout_alignLeft="@+id/return_button"
         android:layout_alignStart="@+id/return_button" />
