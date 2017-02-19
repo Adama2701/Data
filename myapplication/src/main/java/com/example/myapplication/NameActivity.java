@@ -1,12 +1,15 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 public class NameActivity extends AppCompatActivity {
 
     Button btnProceed;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +18,14 @@ public class NameActivity extends AppCompatActivity {
 
         btnProceed = (Button) findViewById(R.id.proceedTest);
 
+        btnProceed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fp=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(fp);
+
+            }
+        });
 
     }
 

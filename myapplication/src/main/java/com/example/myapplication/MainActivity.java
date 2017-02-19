@@ -1,13 +1,13 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnBlue;
     Button btnYellow;
     Button btnVisual;
+    EditText nameField;
+    int score;
     int arrayIndex = 0;
     int arrayLength = 50;
     boolean guess = false;
@@ -38,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         btnYellow = (Button) findViewById(R.id.button);
         //button5 is visual-button
         btnVisual = (Button) findViewById(R.id.button5);
+        //nameTextField
+        nameField = (EditText) findViewById(R.id.editName);
+
+
 
         logic = new Logic();
         randomcolor = logic.colorSequence(arrayLength);
@@ -81,18 +87,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DBArgument data = new DBArgument(this);
-        Test foo = new Test(5, "Adama");
-        data.InsertTest(foo);
-        Cursor cursor = data.selectTest();
+
+        //Cursor cursor = data.selectTest();
 
 
-        cursor.moveToFirst();
+    /*    cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             System.out.println(cursor.getColumnName(0)+": "+cursor.getInt(0)+ " | "+ cursor.getColumnName(1)+ ": "+ cursor.getString(1)+" | "+cursor.getColumnName(2)+
                     ": "+cursor.getInt(2));
             cursor.moveToNext();
         }
+     */
     }
     private void showColors(){
         Handler handler = new Handler();
@@ -147,7 +152,13 @@ public class MainActivity extends AppCompatActivity {
         }else if (choice.length() == stringer.length()){
             Intent intent = new Intent(getBaseContext(), DoneActivity.class);
             String temp = (stringer.length()/2)-1 + "";
+            score = Integer.parseInt(temp);
             intent.putExtra("Data", temp);
+
+            DBArgument data = new DBArgument(this);
+            Test foo = new Test(score, nameField.getText().toString());
+            data.InsertTest(foo);
+
             startActivity(intent);
         }
     }

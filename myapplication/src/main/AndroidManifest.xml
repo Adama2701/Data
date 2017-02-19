@@ -8,17 +8,20 @@
         android:label="Remember Color"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label="Main Activity">
+
+
+        <activity android:name=".NameActivity">
+            android:label="Name Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".DoneActivity" />
-        <activity android:name=".NameActivity"></activity>
+
+
 
     </application>
 
