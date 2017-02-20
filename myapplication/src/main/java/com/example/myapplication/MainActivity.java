@@ -155,10 +155,10 @@ public class MainActivity extends AppCompatActivity {
             score = Integer.parseInt(temp);
             intent.putExtra("Data", temp);
 
-            DBArgument data = new DBArgument(this);
-            Test foo = new Test(score, nameField.getText().toString());
-            data.InsertTest(foo);
-
+            //DBArgument data = new DBArgument(this);
+            //Test foo = new Test(score, nameField.getText().toString());
+            //data.InsertTest(foo);
+            //System.out.println(foo);
             startActivity(intent);
         }
     }
