@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     boolean guess = false;
     String choice = "";
     String stringer;
+    String sut;
 
     ArrayList<String> randomcolor;
     Logic logic;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //button3 is red-button
         btnRed = (Button) findViewById(R.id.button3);
         //button2 is yellow-button
@@ -40,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
         btnYellow = (Button) findViewById(R.id.button);
         //button5 is visual-button
         btnVisual = (Button) findViewById(R.id.button5);
-        //nameTextField
-        nameField = (EditText) findViewById(R.id.editName);
-
 
 
         logic = new Logic();
@@ -88,16 +88,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //Cursor cursor = data.selectTest();
+
+        DBArgument data = new DBArgument(this);
+        Cursor cursor = data.selectTest();
 
 
-    /*    cursor.moveToFirst();
+        cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             System.out.println(cursor.getColumnName(0)+": "+cursor.getInt(0)+ " | "+ cursor.getColumnName(1)+ ": "+ cursor.getString(1)+" | "+cursor.getColumnName(2)+
                     ": "+cursor.getInt(2));
             cursor.moveToNext();
         }
-     */
+
     }
     private void showColors(){
         Handler handler = new Handler();
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 };
-                handler.postDelayed(run, 1000 * i);
+                handler.postDelayed(run, 750 * i);
 
             }
             choice = "";
@@ -155,11 +157,14 @@ public class MainActivity extends AppCompatActivity {
             score = Integer.parseInt(temp);
             intent.putExtra("Data", temp);
 
-            //DBArgument data = new DBArgument(this);
-            //Test foo = new Test(score, nameField.getText().toString());
-            //data.InsertTest(foo);
-            //System.out.println(foo);
+            DBArgument data = new DBArgument(this);
+
+            EditText kat = (EditText) NameActivity.nameField.findViewById(R.id.editName);
+            String string = kat.getText().toString();
+            Test foo = new Test(score,string);
+            data.InsertTest(foo);
             startActivity(intent);
+
         }
     }
 

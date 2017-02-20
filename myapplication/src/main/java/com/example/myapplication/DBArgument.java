@@ -35,4 +35,10 @@ public class DBArgument {
         return cursor;
     }
 
+    public void DeleteAll(){
+        sqLiteDatabase.delete(DBHandler.TABLE_GUESS,null,null);
+        sqLiteDatabase.execSQL("delete from " + dbHandler.TABLE_GUESS);
+        sqLiteDatabase.close();
+    }
+
 }
